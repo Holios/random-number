@@ -1,2 +1,1 @@
-"# random-number" 
-"# random-number" 
+random number generator

@@ -1,0 +1,125 @@
+NOTE:
+the current program is in early development and is structured to get functionality down, the program
+DOES NOT work as currently listed, as functionalty is written the program will adjust to follow the 
+flow as described below.
+
+however the current program does have an easy to follow text user interface, both for current usage
+and troubleshooting.
+
+----------------------------------------------------------------------------
+the primary goal of this program is as follows:
+
+the program allows the user to create saved templates for random value generator
+the program will allow the user to save text and save random calls as wanted in a
+easy to use generator, and will be able to recall these templates and run the random
+generators at run time.
+
+
+creating a new generator:
+	do you want to
+	:: Run a one time value generator 
+	OR
+	:: save or run a more complex script which includes text blocks and calls to a random value generator
+	
+	the program will be able to do all the the below, in each case, the user can input text blocks, and also
+	add a random value generation quickly
+		**
+		in order to allow the user to better format their script I will print a statement like this:
+
+		print ("this program does not automatically create newlines due to allowances for personal
+		formatting, to add a new line type /"n/" alone on a line, to call a random number generator type in /"r/"
+		alone, when creating a generator the program will give you more options")
+
+		which will notify them of basic useage of the script generator
+		**
+	1: create a generator for numbers
+		program will ask user for minum value, maxium value, and number of times to run the generator
+		enter the minium value
+		>
+		enter the maxium value
+		>
+		how many random numbers should we get?
+		>
+
+	2: create a generator for names
+
+		program will ask user for input as string, each string will be added to a dictionary after 
+		the dictionary is created it will be placed into the current script.
+	
+	3: create a nested generator
+
+		enter values to be saved on a single line with commas and no spaces between each value	
+		
+		see below for more information on possible setups for nested generators
+
+	4: run a saved generator
+		1:list generators	
+			listing of all files in saved directory
+		2:run a generator
+			asks user for name of file in directory to run
+			*program will know to look in directory for the file name given
+------------------------------------
+
+creating a nested generator
+
+	1 the entries must have mulitple values, which can be called and sorted
+
+	ex. gods in smite, have a "Type" and a "name"
+	a nested generator will be able to randomly pick from either ALL, SOME, or ONE, "type"
+	and return a "name" from just the selected "types"
+	
+	the program should be let the user either pick from ALL, SOME(deciding either additivly, or
+	subtractivly), or ONE "type"
+
+	the program will list all "types" first and then let the user either clear list or clear a single
+	value
+
+	///
+	which types do you want to select from:
+	{list of "types"}
+	1: clear all "types"
+	2: remove a single "type"
+	3: add a "type" that has been removed
+	///
+
+	for number of possible nestings will be related to the number of values
+	
+	ex. a nested generator that selected a color scheme could need
+	"main color" "secondary color" "third color" "pattern"
+
+	which could run 4 nested calls
+	
+	select a main color, only picks secondary colors associated with the main color, then pick a third
+	color from possible secondary colors, and finally pick a pattern from the remaning values
+	or the user could pick any number of values, and the generator would fill out the missing values
+	(this assumes all entries in the array have all 4 values, and is not just 4 lists. something like
+ 	
+	entry1 = "black", "red" , "gold", "checkered"
+	entry2 = "black", "green", "red", "solid"
+	entry3 = "black", "green", "gold","solid"
+
+	these two entries could randomly pick either if the first value is black, but if the second value is
+	selected as "red" the only value the generator would pick would be the first one however if the user
+	selected "black" and then "green" the generator could randomly pick either entry 2, or entry 3, but
+	not entry 1.
+
+--------------------------------------
+EXAMPLES:
+//
+THis will pick a random (type_random) god from smite
+
+your god is: (random_god(only gods from within (type_random))
+and you will play them for (random_number) games
+//
+This will pick a random character for DCSS!
+
+your race is: (random_race)
+your class is: (random_class)
+and you worship: (random_god)
+
+Good luck!
+//
+this will pick a random Goal in minecraft from your list:
+your goal is (Random_goal)
+	
+		
